@@ -1,7 +1,6 @@
-const title = document.querySelector('h1');
-title.style.color = "red";
+const menu = document.getElementById('app-title');
 
-const menu = document.querySelector('menu');
-menu.style.backgroundColor = "red";
-menu.style.fontSize = "25px";
-menu.className ="main-menu";
+const button = document.querySelector('button');
+button.addEventListener('click', () =>{
+    menu.classList.toggle('invisible');
+});

@@ -96,8 +96,34 @@ title.className = "nuevo";              //Asignar una clase, borra las clases qu
 
 ### <span class="clase"> 9. Moificando la visibilidad de elementos HMTL </span>
 
+```javascript
+const menu = document.getElementById('app-title');
+menu.classList.toggle('invisible');         //Valida si el elemento posee la clase y la agrega o quita segun el caso
+menu.classList.add('invisible');            //Agrega la clase
+menu.classList.remove('invisible');         //Elimina la clase
+menu.classList.contains('invisible');       //Retorna true o false si el elemento contiene la clase
+```
 
+### <span class="clase"> 10. Creación de elementos con HTML Strings e insertAdjacentElement() </span>
+Existen dos formas de agregar elementos en HTML con `innerHTML` o `insertAdjacentHTML`
 
+```javascript
+const contentArea = document.getElementById('contentArea');
+contentArea.innerHTML = "<p>Este es un nuevo parrafo</p>";                              //Al momento de agregar la cadena lo convierte en un elemento HTML
+contentArea.insertAdjacentHTML('beforebegin', '<p>Este es otro parrafo nuevo</p>');     // Antes del elemento en si
+contentArea.insertAdjacentHTML('afterbegin', '<p>Este es otro parrafo nuevo</p>');      //Dentro del elemento, antes de su primer hijo
+contentArea.insertAdjacentHTML('beforeend', '<p>Este es otro parrafo nuevo</p>');       //Dentro del elemento, después de su último hijo
+contentArea.insertAdjacentHTML('afterend', '<p>Este es otro parrafo nuevo</p>');        //Después del elemento en sí
+```
+
+### <span class="clase"> 11. Agregando elementos con `innerHTML` e `insertAdjacentHTML()` </span>
+```javascript
+const listArea = document.getElementById('listArea');       
+listArea.innerHTML += '<li>Item 5</li>';                        //Cuando agregamos elementos con innerHTMl todo el contenido de listArea se ve modificado afectando el performance
+listArea.insertAdjacentHTML('beforeend','<li>Item 6</li>');     //Solamente agrega el nuevo elemento sin reenderizar todos los hijos del elemento
+```
+
+### <span class="clase"> 12. Creacion de elementos con `createElement()` </span>
 
 #### COMANDOS
 ``` : Codigo
