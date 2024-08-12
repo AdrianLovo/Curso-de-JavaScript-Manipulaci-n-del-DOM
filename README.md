@@ -124,6 +124,76 @@ listArea.insertAdjacentHTML('beforeend','<li>Item 6</li>');     //Solamente agre
 ```
 
 ### <span class="clase"> 12. Creacion de elementos con `createElement()` </span>
+Sirve para crear elementos sin necesidad de utilizar strings, nos permite agregar elementos sin necesidad de sustituirlos sin afectar el performance
+```javascript
+const newPElement = document.createElement('p');    //Indicar el tipo de elemento a crear
+contentArea.append(newPElement);                    //Agraga el elmento al final
+contentArea.prepend(newPElement);                   //Agrega el elemento al inicio
+contentArea.before(newPElement);                    //Agrega el elemento antes de otro
+contentArea.aftre(newPElement);                     //Agrega el elemento despues
+```
+
+### <span class="clase"> 13. Remover elementos con `remove()` y `removeChild()` </span>
+```javascript
+const firstItem = document.querySelector('li');         
+firstItem.remove();                                     //Remueve el elemento
+const listArea = document.getElementById('listArea');
+listArea.removeChild(listArea.firstElementChild);       //De la lista se remueve el primer elemento
+```
+
+### <span class="clase"> 14. Clonación y reemplazo de elementos con `CloneNode` y `replaceChild` </span>
+```javascript
+const contentArea = document.querySelector('#contentArea');
+const originalP = contentArea.querySelector('p');
+const clonedP = originalP.cloneNode(true);                  //Clonando elemento
+clonedP.id = "prueba_2";                                    //Asignando un nuevo id
+clonedP.textContent = "Este es un nuevo texto";             //Modificando el texto
+
+contentArea.append(clonedP);
+contentArea.replaceWith(clonedP);                           //Reemplaza el elemento
+```
+
+
+## <span class="seccion"> Manipulando Eventos en el DOM </span>
+
+### <span class="clase"> 15. Entendiendo eventos y tipos: Burbuja, Captura y Propagación </span>
+Tipos de ventos: Mouse, Teclado, Window del navegador, Formulario, Tactiles, Etc
+Flujo de un Evento: Capturing, Target, Bubling
+
+### <span class="clase"> 16. Agregar y eliminar escuchadores de eventos o `Event Listeners` </span>
+```javascript
+const container = document.querySelector('.container');
+container.addEventListener('mouseover', ()=> {                  //Recibe dos parametros el evento y que hara
+    container.style.backgroundColor = 'blue';
+});
+
+const button = document.querySelector('button');
+button.addEventListener('click', ()=> {                         //Declarar el evento
+    alert('Button clicked');
+});
+
+const buttonClickCallback = () => {                             //Declarar el evento como un callback
+    alert('Button Clicked');
+}
+
+button.addEventListener('click', buttonClickCallback);          //Primero agrega el evento
+setTimeout(() => {
+    button.removeEventListener('click', buttonClickCallback)    //Despues de X en milisegundos tiempo quita el evento
+}, 2000);
+```
+
+### <span class="clase"> 17. El objeto evento o `eventObject` </span>
+Los eventos en JavaScript son objetos, podemos saber que tipo de elemento genero el evento, que elemento 
+```javascript
+const button = document.querySelector('button');
+const buttonClicked = (event) => {
+    console.log(event);                     //El evento
+    console.log(event.target);              //El elemento que genero el evento
+    console.log(event.target.id);           //El id del elemento
+    console.log(event.target.textContent);  //El texto del elemento
+}
+button.addEventListener('click', buttonClicked);
+```
 
 #### COMANDOS
 ``` : Codigo
