@@ -195,6 +195,39 @@ const buttonClicked = (event) => {
 button.addEventListener('click', buttonClicked);
 ```
 
+### <span class="clase"> 18. Manejo de entradas de formulario y validacion </span>
+```javascript
+const form = document.getElementById('myForm');
+form.addEventListener('submit', (event) => {
+    event.preventDefault();                         //Quitamos el comportamiento predeterminado del form
+    const name = form.elements['name'].value;       //Obtener el value segun el name del input
+    console.log(name);
+})
+```
+
+### <span class="clase"> 19. Delegación de eventos y prevención de comportamiento predeterminado </span>
+Sirve para agregar un evento a la etiqueta padre y delegar la responsabilidad a la etiqueta padre en lugar de crear un evento para todos los hijos y que estos manejen el evento
+```javascript
+const listItems = document.querySelectorAll('li');              //Forma tradicional agregando el evento a cada item
+listItems.forEach((item) => {
+    item.addEventListener('click', (event) => {
+        event.target.classList.toggle('highlight');
+    })
+});
+
+const list = document.querySelector('ul');                      //El elemtno padre esta escuchando 
+list.addEventListener('click', (event) => {
+    event.target.closest('li').classList.toggle('highlight');   //Obtener el target mas cercano de lo que puede ser un "li"
+});
+```
+
+
+
+## <span class="seccion"> Creando un administrador de Tareas</span>
+
+### <span class="clase"> 20.Añadir tareas desde un formulario </span>
+
+
 #### COMANDOS
 ``` : Codigo
 ```LENGUAJE : Codigo
