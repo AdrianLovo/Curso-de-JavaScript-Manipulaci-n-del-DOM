@@ -1,7 +1,22 @@
 const taskForm = document.getElementById('task-form');
 const taskList = document.getElementById('task-list');
+const themeToggleButton = document.getElementById('toggle-theme-btn');
+
+themeToggleButton.addEventListener('click', (event)=>{
+    event.preventDefault();
+    document.body.classList.toggle('dark-theme');
+
+    const theme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
+    localStorage.setItem('theme', theme);
+});
+
 
 loadTasks();
+
+const currentTheme = localStorage.getItem('theme');
+if(currentTheme === 'dark'){
+    document.body.classList.add('dark-theme');
+}
 
 taskForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -14,6 +29,7 @@ taskForm.addEventListener('submit', (event) => {
         taskForm.elements['task-input'].value = "";
     }
 });
+
 
 function create_task(taskInput){
     const li = document.createElement('li');    
@@ -42,6 +58,7 @@ taskList.addEventListener('click', (event) => {
 function deleteTask(taskItem){
     if(confirm('Estás segura/seguro de borrar este elemento?')){
         taskItem.remove();
+        deleteLocalStorage();
     }    
 }
 
@@ -49,6 +66,7 @@ function editTask(taskItem){
     const newTask = prompt("Edita la tarea: ", taskItem.firstChild.textContent);
     if(newTask !== null){
         taskItem.firstChild.textContent = newTask;
+        updateLocalStorage();
     }
 }
 
@@ -63,4 +81,14 @@ function loadTasks(){
     tasks.forEach( (task) => {
         taskList.appendChild(create_task(task));
     });
+}
+
+function updateLocalStorage(){
+    const tasks = Array.from(taskList.querySelectorAll('li')).map((li) => li.firstChild.textContent)      //Convierte lista de nodos en array
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+function deleteLocalStorage(){
+    const tasks = Array.from(taskList.querySelectorAll('li')).map((li) => li.firstChild.textContent)      //Convierte lista de nodos en array
+    localStorage.setItem('tasks', JSON.stringify(tasks));
 }
