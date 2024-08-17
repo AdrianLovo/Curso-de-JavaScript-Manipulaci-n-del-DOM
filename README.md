@@ -158,10 +158,10 @@ contentArea.replaceWith(clonedP);                           //Reemplaza el eleme
 
 ### <span class="clase"> 15. Entendiendo eventos y tipos: Burbuja, Captura y Propagación </span>
 Tipos de ventos: <br>
-• Mouse <br>  
-• Teclado <br> 
-• Window del navegador <br> 
-• Formulario, Tactiles <br>
+• Mouse <br>
+• Teclado <br>
+• Window del navegador <br>
+• Formulario, Tactiles <br><br>
 Flujo de un Evento: <br>
 • Capturing <br>
 • Target <br> 
