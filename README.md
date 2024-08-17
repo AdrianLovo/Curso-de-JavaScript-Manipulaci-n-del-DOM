@@ -21,8 +21,8 @@
 Aprender de inicio que es el DOM, seleccionar elementos del DOM, cambiarles estilos, mostrar, ocultar. Como funcionan las APIS.
 
 ### <span class="clase"> 2. ¿Qué es el DOM y Window Object? </span>
-El DOM se puede entender como una web API. 
-Window es diferente del DOM.
+El DOM se puede entender como una web API. <br>
+Window es diferente del DOM. <br>
 
 ```
     Load HTML → Parse HTML → Create DOM tree → Display
@@ -31,7 +31,7 @@ Window es diferente del DOM.
 ```
 
 ### <span class="clase"> 3. Explorando nodos del DOM </span>
-La diferencia entre window y document. Window contiene metodos particulares de la ventana en que me encuentro, tambien elementos como la cache.
+La diferencia entre window y document. Window contiene metodos particulares de la ventana en que me encuentro, tambien elementos como la cache. <br>
 El window contienen dentro de si el document, window es el objeto padre.
 
 
@@ -39,8 +39,8 @@ El window contienen dentro de si el document, window es el objeto padre.
 ## <span class="seccion"> Seleccionando y Accesando a Elementos del DOM </span>
 
 ### <span class="clase"> 4. Consultando el DOM con `getElementById` y `querySelector` </span>   
-Obtener elemento de forma única por su id:
-Los querySelector es mas lento que getElement(s)By
+Obtener elemento de forma única por su id: <br>
+Los querySelector es mas lento que getElement(s)By <br>
 
 ```javascript
 document.getElementById(NombreId)               //Elemento por identificador
@@ -157,8 +157,15 @@ contentArea.replaceWith(clonedP);                           //Reemplaza el eleme
 ## <span class="seccion"> Manipulando Eventos en el DOM </span>
 
 ### <span class="clase"> 15. Entendiendo eventos y tipos: Burbuja, Captura y Propagación </span>
-Tipos de ventos: Mouse, Teclado, Window del navegador, Formulario, Tactiles, Etc
-Flujo de un Evento: Capturing, Target, Bubling
+Tipos de ventos: <br>
+• Mouse <br>  
+• Teclado <br> 
+• Window del navegador <br> 
+• Formulario, Tactiles <br>
+Flujo de un Evento: <br>
+• Capturing <br>
+• Target <br> 
+• Bubling
 
 ### <span class="clase"> 16. Agregar y eliminar escuchadores de eventos o `Event Listeners` </span>
 ```javascript
